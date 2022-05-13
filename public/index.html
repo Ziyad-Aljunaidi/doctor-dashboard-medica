@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Medica- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+
+  <!-- Main Stylesheet -->
+  <!--<link rel="stylesheet" href="css/style.css">-->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/css/datepicker-bs4.min.css">
+  <!-- Load an icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <style>
+    .container {
+      margin-top: 40px;
+    }
+
+    .settings {
+      display: none;
+    }
+
+    /*
+    .user-profile {
+      display: none;
+    }
+
+    .personal-info {}
+
+    .edit-personal-info {}
+    */
+
+    .today-appointments {
+      display: block;
+    }
+
+    .history-appointments {
+      display: none;
+    }
+
+    .doctor-reviews {
+      display: none;
+    }
+
+    .doctor-reviews h5 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .confirm{
+      display: inline;
+    }
+    .cancel{
+      display: inline;
+    }
+    .sts-btn-con {
+      display: none;
+    }
+    .sts-btn-can{
+      display: none;
+    }
+    /* Style the sidebar - fixed full height */
+    .sidebar {
+      height: 100%;
+      width: 80px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #f4f9fc;
+      overflow-x: hidden;
+      padding-top: 16px;
+    }
+
+    /* Style sidebar links */
+    .sidebar a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #223a66;
+      display: block;
+    }
+
+    /* Style links on mouse-over */
+    .sidebar a:hover {
+      color: #4479db;
+    }
+
+    /* Style the main content */
+    .main {
+      margin-left: 160px;
+      /* Same as the width of the sidenav */
+      padding: 0px 10px;
+    }
+
+    .bottom-left {
+      width: 100%;
+      margin: auto;
+      margin-bottom: 30px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+    }
+
+    .btm-sm {
+      font-size: small !important;
+    }
+
+    /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {
+        padding-top: 15px;
+      }
+
+      .sidebar a {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) { 
+      .container{
+       width: 560px;
+      }
+    }
+  </style>
+
+
+
+</head>
+
+<body id="top">
+
+
+
+  <!-- The sidebar -->
+  <div class="sidebar">
+    <div style="width: 80px; margin: auto;">
+      <a href="#" style="text-align:center;">
+        <img src="images/medica-logo.svg" style="width:60%">
+      </a>
+    </div>
+    <!--
+    <a href="#home"><i class="fa fa-calendar" aria-hidden="true"></i> Patients</a>
+    <a href="#services"><i class="fa fa-history" aria-hidden="true"></i> History</a>
+    <a href="#clients"><i class="fa fa-sliders" aria-hidden="true"></i> Settings</a>
+    <a href="#contact"><i class="fa fa-comments" aria-hidden="true"></i> Reviews</a>
+    <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Support</a>-->
+
+    <div style="text-align:center ;">
+      <a href="#home"><i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Reserved Appointments"></i></a>
+      <a href="#services"><i class="fa fa-history" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="History Appointments"></i></i></a>
+      <a href="#clients"><i class="fa fa-sliders" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Settings"></i></i></a>
+      <a href="#contact"><i class="fa fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Reviews & Ratings"></i></i></a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope" data-toggle="tooltip" data-placement="right" title="Support"></i></a>
+    </div>
+
+    <!-- Default dropright button -->
+    <div class="btn-group dropup bottom-left">
+      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <img src="images/user_avatar.png" width="20%">
+      </button>
+
+      <div class="dropdown-menu">
+        <div style="text-align: center;">
+          <!-- Dropdown menu links -->
+          <a class="dropdown-item" href="#" style="font-size: 12px !important;">Profile Settings</a>
+          <a class="dropdown-item" href="#" style="font-size: 12px !important;">Logout</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doctor-dashboard">
+    <div class="container user-profile settings">
+      <div class="card mb-12">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="images/user_avatar.png" class="card-img" alt="..." style="width: 60%; margin: 30px; ">
+          </div>
+          <div class="col-md-8" style="margin-top: 30px;">
+            <div class="card-body ">
+              <h2 class="card-title">Ziad Sammana</h2>
+              <p class="card-text">zadj9965@gmail.com</p>
+              <p class="card-text"><small class="text-muted">Date of birth: 10/10/2001</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container personal-info settings">
+      <span style=>
+        <h2>Personal Info </h2>
+      </span>
+      <div class="card mb-12">
+        <div class="row no-gutters">
+          <div class="col-md-6" style="margin-top: 30px;">
+            <div class="card-body ">
+              <h4 class="card-title">First Name</h4>
+              <p class="card-text">Ziad</p>
+            </div>
+            <div class="card-body ">
+              <h4 class="card-title">Email</h4>
+              <p class="card-text">Sammana_elmatena@theHub.com</p>
+
+            </div>
+            <div class="card-body ">
+              <h4 class="card-title">Phone number</h4>
+              <p class="card-text">01113357439</p>
+            </div>
+          </div>
+          <div class="col-md-6" style="margin-top: 30px;">
+            <div class="card-body ">
+              <h4 class="card-title">Last Name</h4>
+              <p class="card-text">Sammana</p>
+
+            </div>
+            <div class="card-body ">
+              <h4 class="card-title">Birthday:</h4>
+              <p class="card-text">22/2/2001</p>
+
+            </div>
+            <div class="card-body ">
+              <h4 class="card-title">National ID</h4>
+              <p class="card-text">1234567891011</p>
+            </div>
+          </div>
+        </div>
+        <div class="float-right" style="margin: 20px;">
+
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Forgot your Password?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Edit Info</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container edit-personal-info settings">
+      <span style=>
+        <h2>Edit Personal Info </h2>
+      </span>
+      <div class="card mb-12">
+        <div class="row no-gutters">
+          <div class="col-md-6" style="margin-top: 30px;">
+            <div class="card-body ">
+              <div class="form-group ">
+                <label for="Fname">First Name</label>
+                <input type="text" class="form-control" id="Fname">
+
+              </div>
+              <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email">
+              </div>
+              <div class="form-group">
+                <label for="PhoneNumber">Phone Number</label>
+                <input type="number" class="form-control" id="PhoneNumber">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6" style="margin-top: 30px;">
+            <div class="card-body ">
+              <div class="form-group ">
+                <label for="Lname">Last Name</label>
+                <input type="text" class="form-control" id="Lname">
+              </div>
+
+              <div class="form-group">
+                <label for="Birthday">Date Of Birth</label>
+                <input type="date" class="form-control" id="Birthday">
+              </div>
+              <div class="form-group">
+                <label for="NID">National ID</label>
+                <input type="number" class="form-control" id="NID">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="float-right" style="margin: 20px;">
+
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Save</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container edit-medical-Info settings">
+      <span style=>
+        <h2>Edit Medical Info </h2>
+      </span>
+      <div class="card mb-12">
+        <div class="row no-gutters">
+          <div class="col-md-6" style="margin-top: 30px;">
+            <div class="card-body ">
+              <div class="form-group ">
+                <label for="University">University Name</label>
+                <input type="text" class="form-control" id="University">
+
+              </div>
+              <div class="form-group">
+                <label for="Speciality">Speciality</label>
+                <select class="form-control" id="Speciality">
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Internal Medicine">Internal Medicine</option>
+                  <option value="Dermatology">Dermatology</option>
+                  <option value="Dentistry">Dentistry</option>
+                  <option value="Pediatrics">Pediatrics</option>
+                  <option value="Psychology">Psychology</option>
+                  <option value="Surgery">Surgery</option>
+                  <option value="Orthopedics">Orthopedics</option>
+                  <option value="Ophthalmology">Ophthalmology</option>
+                  <option value="Neurology">Neurology</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="Qualification">Qualification</label>
+                <input type="text" class="form-control" id="Qualification" style="height:80px;"">
+              </div>
+            </div>
+          </div>
+
+          <div class=" col-md-6" style="margin-top: 30px;">
+                <div class="card-body ">
+                  <div class="form-group">
+                    <label for="Graduation">Graduation Year</label>
+                    <input type="date" class="form-control" id="Graduation">
+                  </div>
+
+                  <div class="form-group ">
+                    <label for="Experience">Experience/Training</label>
+                    <input type="text" class="form-control" id="Experience" style="height:80px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="float-right" style="margin: 20px;">
+
+              <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Save</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+
+    <div class="container edit-clinic-Info settings">
+          <span style=>
+            <h2>Edit Clinic Info </h2>
+          </span>
+          <div class="card mb-12">
+            <div class="row no-gutters">
+              <div class="col-md-6" style="margin-top: 30px;">
+                <div class="card-body ">
+
+
+                  <div class="form-group">
+                    <label for="Governorate">Governorate</label>
+                    <select class="form-control" id="Governorate">
+                      <option value="Alexandria">Alexandria</option>
+                      <option value="Aswan">Aswan</option>
+                      <option value="Asyut">Asyut</option>
+                      <option value="Beheira">Beheira</option>
+                      <option value="Beni Suef">Beni Suef</option>
+                      <option value="Cairo">Cairo</option>
+                      <option value="Dakahlia">Dakahlia</option>
+                      <option value="Damietta">Damietta</option>
+                      <option value="Faiyum">Faiyum</option>
+                      <option value="Giza">Giza</option>
+                      <option value="Suez">Suez</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group ">
+                    <label for="City">City</label>
+                    <input type="text" class="form-control" id="City">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="Address">Address</label>
+                    <input type="text" class="form-control" id="Address" style="height:80px;"">
+              </div>
+
+              <div class=" form-group">
+                    <label for="fee-examination">Fee per Examination in EGP</label>
+                    <input type="number" class="form-control" id="fee-examination">
+
+                  </div>
+
+                  <div class="form-group ">
+                    <label for="fee-consultation">Fee per Consultation in EGP</label>
+                    <input type="number" class="form-control" id="fee-consultation">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6" style="margin-top: 30px;">
+                <div class="card-body ">
+                  <label for="fee-consultation">Working Hours</label>
+                  <div class="form-group ">
+                    <input type="text" class="form-control" id="from-hrs" placeholder="From">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="to-hrs" placeholder="To">
+                  </div>
+
+                  <label for="fee-consultation">Average Time Required For Examination/Consultaion in Mins</label>
+                  <div class="form-group ">
+                    <input type="number" class="form-control" id="avg-time" placeholder="15">
+                  </div>
+
+                  <label for="fee-consultation">Working Days</label>
+                  <div class="row col-md-12">
+
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Sun">
+                      <label class="form-check-label" for="Sun">Sun</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Mon">
+                      <label class="form-check-label" for="Mon">Mon</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Tue">
+                      <label class="form-check-label" for="Tue">Tue</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Wed">
+                      <label class="form-check-label" for="Wed">Wed</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Thu">
+                      <label class="form-check-label" for="Thu">Thu</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Fri">
+                      <label class="form-check-label" for="Fri">Fri</label>
+                    </div>
+                    <div style="margin: 20px;">
+                      <input type="checkbox" class="form-check-input" id="Sat">
+                      <label class="form-check-label" for="Sat">Sat</label>
+                    </div>
+
+                  </div>
+
+                  <label class="form-check-label" for="ss">Reserve Date Availibility</label>
+                  <div class="row">
+                    <div style="margin: 20px;">
+                      <input name="fav_language"  type="radio" aria-label="Radio button for following text input">
+                      <label class="form-check-label" for="Radio button for following text input">Weekly</label>
+                    </div>
+  
+                    <div style="margin: 20px;">
+                      <input name="fav_language" type="radio" aria-label="Radio button for following text input">
+                      <label class="form-check-label" for="Radio button for following text input">Monthly</label>
+                    </div>
+  
+                    <div style="margin: 20px;">
+                      <input name="fav_language" type="radio" aria-label="Radio button for following text input">
+                      <label class="form-check-label" for="Radio button for following text input">Annually</label>
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <label for="foo">Review working calendar</label>
+                    <input type="text" name="foo">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="float-right" style="margin: 20px;">
+
+              <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Save</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+
+    <div class="container today-appointments" style="margin-top:40px;margin-bottom: 40px;">
+      <div style="margin-bottom:30px;">
+        
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Nasr City</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Maadi</a>
+        </li>
+      </ul>
+      </div>
+        <span style=>
+          <h2>Today's Appointments</h2>
+          <p>clinic address: 123st, bulding #12</p>
+        </span>
+        <div class="card mb-12 ">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Patient</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Reason</th>
+                <th scope="col">Fee</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+                <th scope="col">Prescription</th>
+                <th scope="col">Patient History</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>24/6/2021</td>
+                <td>4:30</td>
+                <td><span class="badge badge-primary">Examination</span></td>
+                <td>200</td>
+                <td><span class="badge badge-success">Completed</span></td>
+                <td>
+                  <a href="#" class="badge badge-success sts-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
+                  <a href="#" class="badge badge-danger sts-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
+                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                <td><a href="#" class="badge badge-secondary">View History</a></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Mark</td>
+                <td>24/6/2021</td>
+                <td>4:30</td>
+                <td><span class="badge badge-secondary">Consultation</span></td>
+                <td>200</td>
+                <td><span class="badge badge-warning">Pending</span></td>
+                <td>
+                  <a href="#" class="badge badge-success sts-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
+                  <a href="#" class="badge badge-danger sts-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
+                <td><a href="#" class="badge badge-warning">Upload Prescription</a></td>
+                <td><a href="#" class="badge badge-secondary">View History</a></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Mark</td>
+                <td>24/6/2021</td>
+                <td>4:30</td>
+                <td><span class="badge badge-primary">Examination</span></td>
+                <td>200</td>
+                <td><span class="badge badge-danger">Cancelled</span></td>
+                <td>
+                  <a href="#" onclick="confirmtoggleStatus('con-sts-3')" id="con-sts-3" class="badge badge-success sts-btn confirm"><i class="fa fa-check" aria-hidden="true"></i></a>
+                  <a href="#" onclick="cancelToggleStatus('can-sts-3')"id="can-sts-3" class="badge badge-danger sts-btn cancel"><i class="fa fa-times" aria-hidden="true"></i></a>
+                  <a href="#" class="badge badge-success sts-btn-con" id="con-sts-btn-3">confirm</i></a>
+                  <a href="#" class="badge badge-danger sts-btn-can" id="can-sts-btn-3">cancel</i></a>
+                </td>
+                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                <td><a href="#" class="badge badge-secondary">View History</a></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Mark</td>
+                <td>24/6/2021</td>
+                <td>4:30</td>
+                <td><span class="badge badge-primary">Examination</span></td>
+                <td>200</td>
+                <td><span class="badge badge-primary">Confirmed</span></td>
+                <td>
+                  <a href="#" class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+                  <a href="#" class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                </td>
+                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                <td><a href="#" class="badge badge-secondary">View History</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+    <div class="container history-appointments" style="margin-top:40px;margin-bottom: 40px;">
+          <span style=>
+            <h2>Clinical visits history</h2>
+            <p>clinic address: 123st, bulding #12</p>
+          </span>
+          <div class="card mb-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Patient</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Fee</th>
+                  <th scope="col">Status</th>
+
+                  <th scope="col">Prescription</th>
+                  <th scope="col">Patient History</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>24/6/2021</td>
+                  <td>4:30</td>
+                  <td><span class="badge badge-primary">Examination</span></td>
+                  <td>200</td>
+                  <td><span class="badge badge-success">Completed</span></td>
+
+                  <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                  <td><a href="#" class="badge badge-secondary">View History</a></td>
+
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Mark</td>
+
+                  <td>24/6/2021</td>
+                  <td>4:30</td>
+                  <td><span class="badge badge-secondary">Consultation</span></td>
+                  <td>200</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+
+                  <td><a href="#" class="badge badge-warning">Upload Prescription</a></td>
+                  <td><a href="#" class="badge badge-secondary">View History</a></td>
+
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Mark</td>
+
+                  <td>24/6/2021</td>
+                  <td>4:30</td>
+                  <td><span class="badge badge-primary">Examination</span></td>
+                  <td>200</td>
+                  <td><span class="badge badge-danger">Cancelled</span></td>
+
+                  <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                  <td><a href="#" class="badge badge-secondary">View History</a></td>
+
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Mark</td>
+
+                  <td>24/6/2021</td>
+                  <td>4:30</td>
+                  <td><span class="badge badge-primary">Examination</span></td>
+                  <td>200</td>
+                  <td><span class="badge badge-primary">Confirmed</span></td>
+
+                  <td><a href="#" class="badge badge-primary">View Prescription</a></td>
+                  <td><a href="#" class="badge badge-secondary">View History</a></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+
+    <div class="container doctor-reviews" style="margin-top: 40px;">
+
+          <div>
+            <div class="card mb-12" style="margin:30px">
+              <div class="row no-gutters">
+
+                <div class="col-md-1" style="margin: 30px; ">
+                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
+                </div>
+                <div class="col-md-4 float-left">
+                  <h5 class="align-middle">Ziyad Gehad</h5>
+                </div>
+                <div class="col-md-12" style="margin-top:-30px !important;">
+                  <div class="card-body">
+                    <div>
+                      4/5
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                      additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-12" style="margin:30px">
+              <div class="row no-gutters">
+
+                <div class="col-md-1" style="margin: 30px; ">
+                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
+                </div>
+                <div class="col-md-4 float-left">
+                  <h5 class="align-middle">Ziyad Magdy</h5>
+                </div>
+                <div class="col-md-12" style="margin-top:-30px !important;">
+                  <div class="card-body">
+                    <div>
+                      4/5
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                      additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mb-12" style="margin:30px">
+              <div class="row no-gutters">
+
+                <div class="col-md-1" style="margin: 30px; ">
+                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
+                </div>
+                <div class="col-md-4 float-left">
+                  <h5 class="align-middle">Ziyad Ghazal</h5>
+                </div>
+                <div class="col-md-12" style="margin-top:-30px !important;">
+                  <div class="card-body">
+                    <div>
+                      4/5
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                      <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </div>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                      additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+    </div>
+
+  </div>
+
+
+
+
+      <!-- 
+    Essential Scripts
+    =====================================-->
+
+
+      <!-- Main jQuery -->
+      <script src="plugins/jquery/jquery.js"></script>
+      <!-- Bootstrap 4.3.2 -->
+      <script src="plugins/bootstrap/js/popper.js"></script>
+      <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+      <script src="plugins/counterup/jquery.easing.js"></script>
+      <!-- Slick Slider -->
+      <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+      <!-- Counterup -->
+      <script src="plugins/counterup/jquery.waypoints.min.js"></script>
+
+      <script src="plugins/shuffle/shuffle.min.js"></script>
+      <script src="plugins/counterup/jquery.counterup.min.js"></script>
+      <!-- Google Map -->
+      <script src="plugins/google-map/map.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker.min.js"></script>
+
+      <script>
+        const elem = document.querySelector('input[name="foo"]');
+
+        function disablePast(){
+          let pastDaysList = []
+          var pastday = new Date((new Date()).valueOf() - 1000*60*60*24);
+          for(let i = 0; i<30; i++){
+            
+            var dd = String(pastday.getDate()).padStart(2, '0');
+            var mm = String(pastday.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = pastday.getFullYear();
+            pastDayDate = mm + '/' + dd + '/' + yyyy;
+            pastDaysList.push(pastDayDate)
+            pastday = new Date((pastday).valueOf() - 1000*60*60*24);
+          }
+
+        //console.log(pastday)
+        return pastDaysList
+
+        }
+
+
+  
+        
+        let dateArr = ['05/11/2022', '05/10/2022']//disablePast()
+        console.log( dateArr)
+        //console.log(new Date(disablePast()))
+        const datepicker = new Datepicker(elem, {
+          // ...options
+          "daysOfWeekDisabled":[0,3],
+          "datesDisabled": disablePast(),
+          "minDate":disablePast()[29]
+        }); 
+      </script>
+      <script src="js/script.js"></script>
+      <script src="js/contact.js"></script>
+      <script src="js/patient_status.js"></script>
+
+</body>
+
+</html>
