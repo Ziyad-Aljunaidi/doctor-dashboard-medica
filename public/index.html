@@ -525,10 +525,34 @@
         </li>
       </ul>
       </div>
+
         <span style=>
-          <h2>Today's Appointments</h2>
+          <h2>Appointments</h2>
           <p>clinic address: 123st, bulding #12</p>
         </span>
+
+        <div class="col-md-12" style="width: 100%;" id="date-filter">
+          <div class="row">
+            <div class="form-group">
+              <input type="text" name="range-start" class="form-control datepicker-input">
+            </div>
+            <div class="flex-grow-0" style="margin:  10px;">
+              <p> To </p>
+            </div>
+            <div class="form-group">
+              <input type="text" name="range-end" class="form-control datepicker-input">
+            </div>
+            <div style="margin-left: 10px;">
+              <a href="#" class="btn btn-primary" id="date-filter-btn">Filter</a>
+            </div>
+
+            <div style="margin-left:545px;">
+              <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
+            </div>
+
+          </div>
+        </div>
+
         <div class="card mb-12 ">
           <table class="table table-striped">
             <thead>
@@ -614,10 +638,47 @@
     </div>
 
     <div class="container history-appointments" style="margin-top:40px;margin-bottom: 40px;">
+
+      <div style="margin-bottom:30px;">
+        
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nasr City</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Maadi</a>
+          </li>
+        </ul>
+        </div>
+
           <span style=>
             <h2>Clinical visits history</h2>
             <p>clinic address: 123st, bulding #12</p>
           </span>
+
+          <div class="col-md-12" id="history-date-filter">
+            <div class="row">
+              <div class="form-group">
+                <input type="text" name="history-range-start" class="form-control datepicker-input">
+              </div>
+              <div class="flex-grow-0" style="margin:  10px;">
+                <p> To </p>
+              </div>
+              <div class="form-group">
+                <input type="text" name="history-range-end" class="form-control datepicker-input">
+              </div>
+              <div style="margin-left: 10px;">
+                <a href="#" class="btn btn-primary" id="history-date-filter-btn">Filter</a>
+              </div>
+
+              
+            <div style="margin-left:545px;">
+              <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
+            </div>
+            </div>
+
+          </div>
+
           <div class="card mb-12">
             <table class="table table-striped">
               <thead>
@@ -629,7 +690,6 @@
                   <th scope="col">Reason</th>
                   <th scope="col">Fee</th>
                   <th scope="col">Status</th>
-
                   <th scope="col">Prescription</th>
                   <th scope="col">Patient History</th>
                 </tr>
@@ -812,6 +872,44 @@
       <script>
         const elem = document.querySelector('input[name="foo"]');
 
+        const start_range  = document.querySelector('input[name="range-start"]');
+
+        const end_range  = document.querySelector('input[name="range-end"]');
+
+        const history_start_range = document.querySelector('input[name="history-range-start"]');;
+        const history_end_range = document.querySelector('input[name="history-range-end"]');
+
+        const datepickers_history_start_range = new Datepicker(history_start_range, {
+          // ...options
+          "daysOfWeekDisabled":[0,3],
+          "datesDisabled": disablePast(),
+          "minDate":disablePast()[29]
+        }); 
+
+        const datepickers_history_end_range = new Datepicker(history_end_range, {
+          // ...options
+          "maxDate": "5/13/2023",
+          "daysOfWeekDisabled":[0,3],
+          "datesDisabled": disablePast(),
+          "minDate":disablePast()[29]
+        });
+
+        const datepickers_start_range = new Datepicker(start_range, {
+          // ...options
+          "daysOfWeekDisabled":[0,3],
+          "datesDisabled": disablePast(),
+          "minDate":disablePast()[29]
+        }); 
+
+        const datepickers_end_range = new Datepicker(end_range, {
+          // ...options
+          "maxDate": "5/13/2023",
+          "daysOfWeekDisabled":[0,3],
+          "datesDisabled": disablePast(),
+          "minDate":disablePast()[29]
+        });
+        
+
         function disablePast(){
           let pastDaysList = []
           var pastday = new Date((new Date()).valueOf() - 1000*60*60*24);
@@ -843,6 +941,7 @@
           "minDate":disablePast()[29]
         }); 
       </script>
+
       <script src="js/script.js"></script>
       <script src="js/contact.js"></script>
       <script src="js/patient_status.js"></script>
