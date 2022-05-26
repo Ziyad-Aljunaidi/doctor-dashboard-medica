@@ -64,18 +64,22 @@
       transform: translateY(-50%);
     }
 
-    .confirm{
+    .confirm {
       display: inline;
     }
-    .cancel{
+
+    .cancel {
       display: inline;
     }
+
     .sts-btn-con {
       display: none;
     }
-    .sts-btn-can{
+
+    .sts-btn-can {
       display: none;
     }
+
     /* Style the sidebar - fixed full height */
     .sidebar {
       height: 100%;
@@ -124,6 +128,10 @@
       font-size: small !important;
     }
 
+    .btn {
+      color: white !important;
+    }
+
     /* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
     @media screen and (max-height: 450px) {
       .sidebar {
@@ -135,10 +143,79 @@
       }
     }
 
-    @media (min-width: 768px) and (max-width: 991.98px) { 
-      .container{
-       width: 560px;
+    @media (min-width: 768px) and (max-width: 991.98px) {
+      .container {
+        width: 560px;
       }
+    }
+
+    .loading {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+    }
+
+    .loading-wheel {
+      width: 20px;
+      height: 20px;
+      margin-top: -40px;
+      margin-left: -40px;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      border-width: 30px;
+      border-radius: 50%;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    .style-2 .loading-wheel {
+      border-style: double;
+      border-color: #e12454 transparent;
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+      }
+
+      100% {
+        -webkit-transform: rotate(-360deg);
+      }
+    }
+
+    #loading-screen {
+      display: block;
+    }
+
+    #prescription {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      color: #223a66;
+      /*display: none;*/
+      visibility: hidden;
+    }
+
+    #loading-image{
+      /*display: none;*/
+      visibility: hidden;
+    }
+    #success-msg{
+      display: none;
     }
   </style>
 
@@ -165,28 +242,22 @@
     <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Support</a>-->
 
     <div style="text-align:center ;">
-      <a href="#home"><i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Reserved Appointments"></i></a>
-      <a href="#services"><i class="fa fa-history" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="History Appointments"></i></i></a>
-      <a href="#clients"><i class="fa fa-sliders" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Settings"></i></i></a>
-      <a href="#contact"><i class="fa fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Reviews & Ratings"></i></i></a>
-      <a href="#contact"><i class="fa fa-fw fa-envelope" data-toggle="tooltip" data-placement="right" title="Support"></i></a>
+      <a href="#home"><i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+          title="Reserved Appointments"></i></a>
+      <a href="#services"><i class="fa fa-history" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+          title="History Appointments"></i></i></a>
+      <a href="#clients"><i class="fa fa-sliders" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+          title="Settings"></i></i></a>
+      <a href="#contact"><i class="fa fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+          title="Reviews & Ratings"></i></i></a>
+      <a href="#contact"><i class="fa fa-fw fa-envelope" data-toggle="tooltip" data-placement="right"
+          title="Support"></i></a>
     </div>
 
     <!-- Default dropright button -->
-    <div class="btn-group dropup bottom-left">
-      <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
-        <img src="images/user_avatar.png" width="20%">
-      </button>
-
-      <div class="dropdown-menu">
-        <div style="text-align: center;">
-          <!-- Dropdown menu links -->
-          <a class="dropdown-item" href="#" style="font-size: 12px !important;">Profile Settings</a>
-          <a class="dropdown-item" href="#" style="font-size: 12px !important;">Logout</a>
-        </div>
-      </div>
-    </div>
+    <a class="btn bottom-left" href="#" role="button" data-toggle="tooltip" data-placement="right" title="Log out"><i
+        class="fa fa-sign-out" aria-hidden="true"></i></a>
+  </div>
 
   </div>
 
@@ -375,9 +446,9 @@
               </ul>
             </div>
           </div>
-    </div>
+      </div>
 
-    <div class="container edit-clinic-Info settings">
+        <div class="container edit-clinic-Info settings">
           <span style=>
             <h2>Edit Clinic Info </h2>
           </span>
@@ -479,15 +550,15 @@
                   <label class="form-check-label" for="ss">Reserve Date Availibility</label>
                   <div class="row">
                     <div style="margin: 20px;">
-                      <input name="fav_language"  type="radio" aria-label="Radio button for following text input">
+                      <input name="fav_language" type="radio" aria-label="Radio button for following text input">
                       <label class="form-check-label" for="Radio button for following text input">Weekly</label>
                     </div>
-  
+
                     <div style="margin: 20px;">
                       <input name="fav_language" type="radio" aria-label="Radio button for following text input">
                       <label class="form-check-label" for="Radio button for following text input">Monthly</label>
                     </div>
-  
+
                     <div style="margin: 20px;">
                       <input name="fav_language" type="radio" aria-label="Radio button for following text input">
                       <label class="form-check-label" for="Radio button for following text input">Annually</label>
@@ -511,145 +582,85 @@
               </ul>
             </div>
           </div>
-    </div>
+        </div>
 
-    <div class="container today-appointments" style="margin-top:40px;margin-bottom: 40px;">
-      <div style="margin-bottom:30px;">
-        
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Nasr City</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Maadi</a>
-        </li>
-      </ul>
-      </div>
+        <div class="container today-appointments" style="margin-top:40px;margin-bottom: 40px;">
+          <div style="margin-bottom:30px;">
 
-        <span style=>
-          <h2>Appointments</h2>
-          <p>clinic address: 123st, bulding #12</p>
-        </span>
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a id="clinic-0" class="ta-nav nav-link" role="button">Nasr City</a>
+              </li>
+              <li class="nav-item">
+                <a id="clinic-1" class="ta-nav nav-link active" role="button">Maadi</a>
+              </li>
+            </ul>
+          </div>
 
-        <div class="col-md-12" style="width: 100%;" id="date-filter">
-          <div class="row">
-            <div class="form-group">
-              <input type="text" name="range-start" class="form-control datepicker-input">
-            </div>
-            <div class="flex-grow-0" style="margin:  10px;">
-              <p> To </p>
-            </div>
-            <div class="form-group">
-              <input type="text" name="range-end" class="form-control datepicker-input">
-            </div>
-            <div style="margin-left: 10px;">
-              <a href="#" class="btn btn-primary" id="date-filter-btn">Filter</a>
-            </div>
+          <span style=>
+            <h2>Appointments</h2>
+            <p>clinic address: 123st, bulding #12</p>
+          </span>
 
-            <div style="margin-left:545px;">
-              <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
-            </div>
+          <div class="col-md-12" style="width: 100%;" id="date-filter">
+            <div class="row">
+              <div class="form-group">
+                <input type="text" name="range-start" class="form-control datepicker-input" id="start-date">
+              </div>
+              <div class="flex-grow-0" style="margin:  10px;">
+                <p> To </p>
+              </div>
+              <div class="form-group">
+                <input type="text" name="range-end" class="form-control datepicker-input" id="end-date">
+              </div>
+              <div style="margin-left: 10px;">
+                <a role="button" class="btn btn-primary" id="date-filter-btn">Filter</a>
+              </div>
 
+              <div style="margin-left:545px;">
+                <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true"
+                    data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card mb-12 ">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Patient</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Fee</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Action</th>
+                  <th scope="col">Prescription</th>
+                  <th scope="col">Patient History</th>
+                </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div class="card mb-12 ">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Patient</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Reason</th>
-                <th scope="col">Fee</th>
-                <th scope="col">Status</th>
-                <th scope="col">Action</th>
-                <th scope="col">Prescription</th>
-                <th scope="col">Patient History</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>24/6/2021</td>
-                <td>4:30</td>
-                <td><span class="badge badge-primary">Examination</span></td>
-                <td>200</td>
-                <td><span class="badge badge-success">Completed</span></td>
-                <td>
-                  <a href="#" class="badge badge-success sts-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
-                  <a href="#" class="badge badge-danger sts-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-                </td>
-                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
-                <td><a href="#" class="badge badge-secondary">View History</a></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Mark</td>
-                <td>24/6/2021</td>
-                <td>4:30</td>
-                <td><span class="badge badge-secondary">Consultation</span></td>
-                <td>200</td>
-                <td><span class="badge badge-warning">Pending</span></td>
-                <td>
-                  <a href="#" class="badge badge-success sts-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
-                  <a href="#" class="badge badge-danger sts-btn"><i class="fa fa-times" aria-hidden="true"></i></a>
-                </td>
-                <td><a href="#" class="badge badge-warning">Upload Prescription</a></td>
-                <td><a href="#" class="badge badge-secondary">View History</a></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>24/6/2021</td>
-                <td>4:30</td>
-                <td><span class="badge badge-primary">Examination</span></td>
-                <td>200</td>
-                <td><span class="badge badge-danger">Cancelled</span></td>
-                <td>
-                  <a href="#" onclick="confirmtoggleStatus('con-sts-3')" id="con-sts-3" class="badge badge-success sts-btn confirm"><i class="fa fa-check" aria-hidden="true"></i></a>
-                  <a href="#" onclick="cancelToggleStatus('can-sts-3')"id="can-sts-3" class="badge badge-danger sts-btn cancel"><i class="fa fa-times" aria-hidden="true"></i></a>
-                  <a href="#" class="badge badge-success sts-btn-con" id="con-sts-btn-3">confirm</i></a>
-                  <a href="#" class="badge badge-danger sts-btn-can" id="can-sts-btn-3">cancel</i></a>
-                </td>
-                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
-                <td><a href="#" class="badge badge-secondary">View History</a></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Mark</td>
-                <td>24/6/2021</td>
-                <td>4:30</td>
-                <td><span class="badge badge-primary">Examination</span></td>
-                <td>200</td>
-                <td><span class="badge badge-primary">Confirmed</span></td>
-                <td>
-                  <a href="#" class="badge badge-success"><i class="fa fa-check" aria-hidden="true"></i></a>
-                  <a href="#" class="badge badge-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
-                </td>
-                <td><a href="#" class="badge badge-primary">View Prescription</a></td>
-                <td><a href="#" class="badge badge-secondary">View History</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-    </div>
+        <div class="container history-appointments" style="margin-top:40px;margin-bottom: 40px;">
 
-    <div class="container history-appointments" style="margin-top:40px;margin-bottom: 40px;">
+          <div style="margin-bottom:30px;">
 
-      <div style="margin-bottom:30px;">
-        
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Nasr City</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Maadi</a>
-          </li>
-        </ul>
-        </div>
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Nasr City</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Maadi</a>
+              </li>
+            </ul>
+          </div>
 
           <span style=>
             <h2>Clinical visits history</h2>
@@ -671,15 +682,16 @@
                 <a href="#" class="btn btn-primary" id="history-date-filter-btn">Filter</a>
               </div>
 
-              
-            <div style="margin-left:545px;">
-              <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
-            </div>
+
+              <div style="margin-left:545px;">
+                <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true"
+                    data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
+              </div>
             </div>
 
           </div>
 
-          <div class="card mb-12">
+          <div class="card mb-12 table-class">
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -753,9 +765,9 @@
               </tbody>
             </table>
           </div>
-    </div>
+        </div>
 
-    <div class="container doctor-reviews" style="margin-top: 40px;">
+        <div class="container doctor-reviews" style="margin-top: 40px;">
 
           <div>
             <div class="card mb-12" style="margin:30px">
@@ -839,113 +851,177 @@
 
           </div>
 
-    </div>
+        </div>
+      </div>
 
-  </div>
+      <div class="loading style-2" id="loading-screen">
+        <div class="loading-wheel"></div>
+      </div>
 
+      <div class="upload-prescription" id="prescription">
 
+        <div class="col-md-6 center-upload" style="width:100%; margin:auto; margin-top: 90px;">
+          <h4 style="margin-top:30px; margin-bottom:20px">Upload Prescription</h4>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="image" required>
+            <label class="custom-file-label" for="image" id="image-label">Choose file...</label>
+          </div>
+          <button class="btn btn-primary" style="margin-top: 20px;"  id="upload-image-f">
+            Upload
+          </button>
+          <button class="btn btn-primary" style="margin-top: 20px;" onclick="document.getElementById('prescription').style.visibility = 'hidden'; window.location.reload()">
+            Back
+          </button>
+          <div class="d-flex justify-content-center" id="loading-image">
+            <div class="spinner-border text-danger" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+          </div>
+          <h4 id="success-msg">Prescription uploaded successfully</h4>
+        </div>
+        </div>
 
+      </div>
 
-      <!-- 
-    Essential Scripts
-    =====================================-->
-
-
-      <!-- Main jQuery -->
       <script src="plugins/jquery/jquery.js"></script>
       <!-- Bootstrap 4.3.2 -->
       <script src="plugins/bootstrap/js/popper.js"></script>
       <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
       <script src="plugins/counterup/jquery.easing.js"></script>
-      <!-- Slick Slider -->
-      <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-      <!-- Counterup -->
-      <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-
-      <script src="plugins/shuffle/shuffle.min.js"></script>
-      <script src="plugins/counterup/jquery.counterup.min.js"></script>
-      <!-- Google Map -->
-      <script src="plugins/google-map/map.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
       <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.2.0/dist/js/datepicker.min.js"></script>
+
+
+
 
       <script>
         const elem = document.querySelector('input[name="foo"]');
 
-        const start_range  = document.querySelector('input[name="range-start"]');
+        const start_range = document.querySelector('input[name="range-start"]');
 
-        const end_range  = document.querySelector('input[name="range-end"]');
+        const end_range = document.querySelector('input[name="range-end"]');
 
         const history_start_range = document.querySelector('input[name="history-range-start"]');;
         const history_end_range = document.querySelector('input[name="history-range-end"]');
 
         const datepickers_history_start_range = new Datepicker(history_start_range, {
           // ...options
-          "daysOfWeekDisabled":[0,3],
+          "daysOfWeekDisabled": [0, 3],
           "datesDisabled": disablePast(),
-          "minDate":disablePast()[29]
-        }); 
+          "minDate": disablePast()[29]
+        });
 
         const datepickers_history_end_range = new Datepicker(history_end_range, {
           // ...options
           "maxDate": "5/13/2023",
-          "daysOfWeekDisabled":[0,3],
+          "daysOfWeekDisabled": [0, 3],
           "datesDisabled": disablePast(),
-          "minDate":disablePast()[29]
+          "minDate": disablePast()[29]
         });
 
         const datepickers_start_range = new Datepicker(start_range, {
           // ...options
-          "daysOfWeekDisabled":[0,3],
+          "daysOfWeekDisabled": [0, 3],
           "datesDisabled": disablePast(),
-          "minDate":disablePast()[29]
-        }); 
+          "minDate": disablePast()[29]
+        });
 
         const datepickers_end_range = new Datepicker(end_range, {
           // ...options
           "maxDate": "5/13/2023",
-          "daysOfWeekDisabled":[0,3],
+          "daysOfWeekDisabled": [0, 3],
           "datesDisabled": disablePast(),
-          "minDate":disablePast()[29]
+          "minDate": disablePast()[29]
         });
-        
 
-        function disablePast(){
+        function disablePast() {
           let pastDaysList = []
-          var pastday = new Date((new Date()).valueOf() - 1000*60*60*24);
-          for(let i = 0; i<30; i++){
-            
+          var pastday = new Date((new Date()).valueOf() - 1000 * 60 * 60 * 24);
+          for (let i = 0; i < 30; i++) {
+
             var dd = String(pastday.getDate()).padStart(2, '0');
             var mm = String(pastday.getMonth() + 1).padStart(2, '0'); //January is 0!
             var yyyy = pastday.getFullYear();
             pastDayDate = mm + '/' + dd + '/' + yyyy;
             pastDaysList.push(pastDayDate)
-            pastday = new Date((pastday).valueOf() - 1000*60*60*24);
+            pastday = new Date((pastday).valueOf() - 1000 * 60 * 60 * 24);
           }
 
-        //console.log(pastday)
-        return pastDaysList
+          //console.log(pastday)
+          return pastDaysList
 
         }
 
-
-  
-        
         let dateArr = ['05/11/2022', '05/10/2022']//disablePast()
-        console.log( dateArr)
+        console.log(dateArr)
         //console.log(new Date(disablePast()))
         const datepicker = new Datepicker(elem, {
           // ...options
-          "daysOfWeekDisabled":[0,3],
+          "daysOfWeekDisabled": [0, 3],
           "datesDisabled": disablePast(),
-          "minDate":disablePast()[29]
+          "minDate": disablePast()[29]
         }); 
       </script>
 
+      <script defer src="js/cookie_check.js"></script>
+      <script src="js/signin.js"></script>
+      <script src="js/appointment.js"></script>
       <script src="js/script.js"></script>
       <script src="js/contact.js"></script>
       <script src="js/patient_status.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
 
-</body>
+      <script>
+        const firebaseConfig = {
+          apiKey: "AIzaSyD18CvQu6AWzU9CFu_75aL92nOThgeZd6A",
+          authDomain: "medica72-5933c.firebaseapp.com",
+          projectId: "medica72-5933c",
+          storageBucket: "medica72-5933c.appspot.com",
+          messagingSenderId: "814793286058",
+          appId: "1:814793286058:web:b5be2e4e256510d27b0bd3",
+          measurementId: "G-210D30MJ18"
+        };
 
+        firebase.initializeApp(firebaseConfig);
+        console.log(firebase)
+        async function getUploadForm(appointment) {
+          
+            document.getElementById('prescription').style.visibility = "visible";
+          let btn = document.querySelector('#upload-image-f')
+          btn.setAttribute('onclick', `uploadPrescription(${JSON.stringify(appointment)})`)
+          //).addEventListener('click', uploadPrescription(appointment))
+          //document.querySelector('#upload-image-f').disabled = true
+        
+        }
+
+        async function uploadPrescription(appointment) {
+          console.log(appointment)
+            document.getElementById('loading-image').style.visibility = 'visible';
+          const ref = firebase.storage().ref();
+          const file = document.querySelector("#image").files[0];
+          console.log(file)
+          const name = +new Date() + "-" + file.name;
+          const metadata = {
+            contentType: file.type
+          };
+          const task = ref.child(name).put(file, metadata);
+          task
+            .then(snapshot => snapshot.ref.getDownloadURL())
+            .then(url => {
+              console.log(url);
+              statusCheck(doc_id, appointment.user_id, appointment.user_time, appointment.status_code, appointment.reason_code, appointment.fees, url, appointment.clinic)
+              //document.querySelector("#fimage").src = url;
+              document.getElementById('loading-image').style.visibility = 'hidden';
+              document.getElementById('success-msg').style.display = 'block';
+              //alert('prescription uploaded successfully')
+            })
+            .catch(console.error);
+        }
+        var filename;
+        document.getElementById('image').onchange = () => {
+          filename = document.querySelector("#image").files[0].name;
+          document.getElementById("image-label").innerHTML = filename;
+          console.log(filename)
+        }
+      </script>
 </html>

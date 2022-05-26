@@ -29,6 +29,10 @@ app.listen(process.env.PORT || 1400, () => console.log('webhook is listening'));
 
 app.use("/", express.static('./public/index.html'))
 
+
+app.use("/signin", express.static('./public/signin.html'))
+app.use("/signup", express.static('./public/signup.html'))
+
 app.get("/doc_dashboard", (req,res) => {
     let queries = req.query
     console.log(queries)
