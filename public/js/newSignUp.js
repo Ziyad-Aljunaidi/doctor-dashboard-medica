@@ -87,6 +87,7 @@ $("#complete-btn").click(function(e){
           "Content-Type": "application/json"
         },
     })
+    window.location.href("/signin")
 })
 
 
