@@ -25,13 +25,13 @@ const static_path = path.join(__dirname, "public");
 // app.use(cors(corsOptions));
 app.use(express.static(static_path));
 app.use(express.urlencoded({ extended: true}));
-app.listen(process.env.PORT || 1400, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 1400, () => console.log('webhook is listening at localhost:1400'));
 
 app.use("/", express.static('./public/index.html'))
 
 
 app.use("/signin", express.static('./public/signin.html'))
-app.use("/signup", express.static('./public/signup.html'))
+app.use("/signup", express.static('./public/newSignUp.html'))
 
 app.get("/doc_dashboard", (req,res) => {
     let queries = req.query

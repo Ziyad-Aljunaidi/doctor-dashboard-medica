@@ -62,3 +62,5 @@ $("#myform").submit(function (e) {
    window.location.href = '/confirmation';
   console.log("jaj")
 });
+
+

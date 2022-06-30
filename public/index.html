@@ -48,6 +48,7 @@
 
     .today-appointments {
       display: block;
+      
     }
 
     .history-appointments {
@@ -217,6 +218,10 @@
     #success-msg{
       display: none;
     }
+
+    #tool-bar{
+      flex-wrap:nowrap !important;
+    }
   </style>
 
 
@@ -266,7 +271,7 @@
       <div class="card mb-12">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <img src="images/user_avatar.png" class="card-img" alt="..." style="width: 60%; margin: 30px; ">
+            <img src="images/doc_avatar.png" class="card-img" alt="..." style="width: 60%; margin: 30px; ">
           </div>
           <div class="col-md-8" style="margin-top: 30px;">
             <div class="card-body ">
@@ -517,7 +522,7 @@
                   <div class="row col-md-12">
 
                     <div style="margin: 20px;">
-                      <input type="checkbox" class="form-check-input" id="Sun">
+                      <input type="checkbox" class="form-check-input" id="sun">
                       <label class="form-check-label" for="Sun">Sun</label>
                     </div>
                     <div style="margin: 20px;">
@@ -585,25 +590,16 @@
         </div>
 
         <div class="container today-appointments" style="margin-top:40px;margin-bottom: 40px;">
-          <div style="margin-bottom:30px;">
 
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a id="clinic-0" class="ta-nav nav-link" role="button">Nasr City</a>
-              </li>
-              <li class="nav-item">
-                <a id="clinic-1" class="ta-nav nav-link active" role="button">Maadi</a>
-              </li>
-            </ul>
-          </div>
 
           <span style=>
             <h2>Appointments</h2>
-            <p>clinic address: 123st, bulding #12</p>
+            <p id="clinic-name">clinic name: 123st, bulding #12</p>
+            <p id="clinic-addess">clinic address: 123st, bulding #12</p>
           </span>
 
           <div class="col-md-12" style="width: 100%;" id="date-filter">
-            <div class="row">
+            <div class="row" id="tool-bar">
               <div class="form-group">
                 <input type="text" name="range-start" class="form-control datepicker-input" id="start-date">
               </div>
@@ -618,19 +614,23 @@
               </div>
 
               <div style="margin-left:545px;">
-                <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true"
+                <a href="#" class="btn btn-primary" id="print-report"><i class="fa fa-print" aria-hidden="true"
                     data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
               </div>
 
             </div>
           </div>
+          <div class="alert alert-primar" id="no-appointments" style="margin: 30px; background-color: aquamarine !important;text-align:center; color: #223a66; font-weight: bold; display:none;">
+            No Appointments Found <i class="bi bi-chat-left-quote-fill"></i>
+          </div>
 
-          <div class="card mb-12 ">
+          <div class="card mb-12 " id="appointment-table">
             <table class="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Patient</th>
+                  <th scope="col">Phone</th>
                   <th scope="col">Date</th>
                   <th scope="col">Time</th>
                   <th scope="col">Reason</th>
@@ -650,17 +650,6 @@
 
         <div class="container history-appointments" style="margin-top:40px;margin-bottom: 40px;">
 
-          <div style="margin-bottom:30px;">
-
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Nasr City</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Maadi</a>
-              </li>
-            </ul>
-          </div>
 
           <span style=>
             <h2>Clinical visits history</h2>
@@ -697,6 +686,7 @@
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Patient</th>
+                  <th scope="col">Phone</th>
                   <th scope="col">Date</th>
                   <th scope="col">Time</th>
                   <th scope="col">Reason</th>
@@ -767,91 +757,97 @@
           </div>
         </div>
 
-        <div class="container doctor-reviews" style="margin-top: 40px;">
+    <div class="container doctor-reviews " style="margin-top: 40px; ">
+      <h4>Patient's Reviews</h4>
+      <div id="reviews-list">
+        <!--
+        <div class="card mb-12" style="margin:30px">
+          <div class="row no-gutters">
 
-          <div>
-            <div class="card mb-12" style="margin:30px">
-              <div class="row no-gutters">
-
-                <div class="col-md-1" style="margin: 30px; ">
-                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
-                </div>
-                <div class="col-md-4 float-left">
-                  <h5 class="align-middle">Ziyad Gehad</h5>
-                </div>
-                <div class="col-md-12" style="margin-top:-30px !important;">
-                  <div class="card-body">
-                    <div>
-                      4/5
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-1" style="margin: 30px; ">
+              <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
             </div>
-            <div class="card mb-12" style="margin:30px">
-              <div class="row no-gutters">
-
-                <div class="col-md-1" style="margin: 30px; ">
-                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
-                </div>
-                <div class="col-md-4 float-left">
-                  <h5 class="align-middle">Ziyad Magdy</h5>
-                </div>
-                <div class="col-md-12" style="margin-top:-30px !important;">
-                  <div class="card-body">
-                    <div>
-                      4/5
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card mb-12" style="margin:30px">
-              <div class="row no-gutters">
-
-                <div class="col-md-1" style="margin: 30px; ">
-                  <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
-                </div>
-                <div class="col-md-4 float-left">
-                  <h5 class="align-middle">Ziyad Ghazal</h5>
-                </div>
-                <div class="col-md-12" style="margin-top:-30px !important;">
-                  <div class="card-body">
-                    <div>
-                      4/5
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </div>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-4 float-left">
+              <h5 class="align-middle">Ziyad Gehad</h5>
             </div>
 
+            <div class="col-md-10" style="margin-top:-30px !important;">
+              <div class="card-body">
+                <div>
+                  4/5
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                  additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+              </div>
+            </div>
           </div>
-
         </div>
+        <div class="card mb-12" style="margin:30px">
+          <div class="row no-gutters">
+
+            <div class="col-md-1" style="margin: 30px; ">
+              <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
+            </div>
+            <div class="col-md-4 float-left">
+              <h5 class="align-middle">Ziyad Magdy</h5>
+            </div>
+            <div class="col-md-10" style="margin-top:-30px !important;">
+              <div class="card-body">
+                <div>
+                  4/5
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" aria-hidden="true"></i>
+                </div>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                  additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card mb-12" style="margin:30px">
+          <div class="row no-gutters">
+
+            <div class="col-md-1" style="margin: 30px; ">
+              <img src="images/user_avatar.png" class="card-img" alt="..." style="width:100%;">
+            </div>
+            <div class="col-md-4 float-left">
+              <h5 class="align-middle">Ziyad Ghazal</h5>
+            </div>
+            <div class="col-md-10" style="margin-top:-30px !important;">
+              <div class="card-body">
+                <div>
+                  5/5
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                  additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Date written: 23/4/2022</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      -->
+        <div class="alert alert-primar" id="no-reviews" style="margin: 30px; background-color: aquamarine !important;text-align:center; color: #223a66; font-weight: bold;">
+          No Reviews Yet <i class="bi bi-chat-left-quote-fill"></i>
+      </div>
+
+      </div>
+
+    </div>
       </div>
 
       <div class="loading style-2" id="loading-screen">
@@ -1009,7 +1005,7 @@
             .then(snapshot => snapshot.ref.getDownloadURL())
             .then(url => {
               console.log(url);
-              statusCheck(doc_id, appointment.user_id, appointment.user_time, appointment.status_code, appointment.reason_code, appointment.fees, url, appointment.clinic)
+              statusCheck(doc_id, appointment.user_id,appointment.visit_id, appointment.user_time, appointment.status_code,appointment.date_stamp, appointment.reason_code, appointment.fees, url, appointment.clinic)
               //document.querySelector("#fimage").src = url;
               document.getElementById('loading-image').style.visibility = 'hidden';
               document.getElementById('success-msg').style.display = 'block';
@@ -1024,4 +1020,55 @@
           console.log(filename)
         }
       </script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
+          <script src="js/getReviews.js"></script>
+
+          <!--
+          <script>
+              function demoFromHTML() {
+                  var pdf = new jsPDF('p', 'pt', 'letter');
+                  // source can be HTML-formatted string, or a reference
+                  // to an actual DOM element from which the text will be scraped.
+                  pdf.setFontSize(9);
+                  //$("#appointment-table").css("font-size", "10px");// change property value
+                  source = $('#appointment-table')[0];
+      
+                  // we support special element handlers. Register them with jQuery-style 
+                  // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+                  // There is no support for any other type of selectors 
+                  // (class, of compound) at this time.
+                  specialElementHandlers = {
+                      // element with id of "bypass" - jQuery style selector
+                      '#bypassme': function (element, renderer) {
+                          // true = "handled elsewhere, bypass text extraction"
+                          return true
+                      }
+                  };
+                  margins = {
+                      top: 80,
+                      bottom: 60,
+                      left: 0,
+                      width: 800
+                  };
+                  // all coords and widths are in jsPDF instance's declared units
+                  // 'inches' in this case
+                  pdf.fromHTML(
+                      source, // HTML string or DOM elem ref.
+                      margins.left, // x coord
+                      margins.top, { // y coord
+                      'width': margins.width, // max width of content on PDF
+                      'elementHandlers': specialElementHandlers
+                  },
+                  
+      
+                      function (dispose) {
+                          // dispose: object with X, Y of the last line add to the PDF 
+                          //          this allow the insertion of new lines after html
+                          pdf.save('Test.pdf');
+                      }, margins);
+              }/*  */
+          </script>
+          -->
 </html>
