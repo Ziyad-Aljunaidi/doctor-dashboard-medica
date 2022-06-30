@@ -79,7 +79,7 @@ $("#complete-btn").click(function(e){
 
     //console.log(document.getElementById("myForm").submit())
     //window.alert(JSON.stringify(final_doctor_obj))
-    fetch('http://localhost:5000/medica72-5933c/us-central1/api/addNewDoctor',{
+    fetch('https://us-central1-medica72-5933c.cloudfunctions.net/api/addNewDoctor',{
         body:JSON.stringify(final_doctor_obj),
         method:'post',
         mode: 'no-cors',
