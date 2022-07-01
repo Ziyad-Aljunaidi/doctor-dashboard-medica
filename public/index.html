@@ -652,28 +652,29 @@
 
 
           <span style=>
-            <h2>Clinical visits history</h2>
-            <p>clinic address: 123st, bulding #12</p>
+            <h2>History Appointments</h2>
+            <p id="history-clinic-name">clinic name: 123st, bulding #12</p>
+            <p id="history-clinic-addess">clinic address: 123st, bulding #12</p>
           </span>
 
           <div class="col-md-12" id="history-date-filter">
             <div class="row">
               <div class="form-group">
-                <input type="text" name="history-range-start" class="form-control datepicker-input">
+                <input type="text" name="history-range-start" class="form-control datepicker-input" id="history-range-start">
               </div>
               <div class="flex-grow-0" style="margin:  10px;">
                 <p> To </p>
               </div>
               <div class="form-group">
-                <input type="text" name="history-range-end" class="form-control datepicker-input">
+                <input type="text" name="history-range-end" class="form-control datepicker-input" id="history-range-end">
               </div>
               <div style="margin-left: 10px;">
-                <a href="#" class="btn btn-primary" id="history-date-filter-btn">Filter</a>
+                <a role="button" class="btn btn-primary" id="history-date-filter-btn">Filter</a>
               </div>
 
 
               <div style="margin-left:545px;">
-                <a href="#" class="btn btn-primary" id="date-filter-btn"><i class="fa fa-print" aria-hidden="true"
+                <a href="#" class="btn btn-primary" id="report-history"><i class="fa fa-print" aria-hidden="true"
                     data-toggle="tooltip" data-placement="top" title="Print Report"></i></a>
               </div>
             </div>
@@ -1024,6 +1025,7 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
           <script src="js/getReviews.js"></script>
+          <script src="js/history_appointments.js"></script>
 
           <!--
           <script>

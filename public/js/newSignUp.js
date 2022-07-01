@@ -87,7 +87,11 @@ $("#complete-btn").click(function(e){
           "Content-Type": "application/json"
         },
     })
-    window.location.href("/signin")
+    setTimeout(function() {
+        //your code to be executed after 1 second
+        window.location.href = "/signin"
+        //document.getElementById('users-div').style.display = "none"
+      }, 1000);
 })
 
 
