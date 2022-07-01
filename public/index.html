@@ -247,20 +247,22 @@
     <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Support</a>-->
 
     <div style="text-align:center ;">
-      <a href="#home"><i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+      <a href="#appointments"><i class="fa fa-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="right"
           title="Reserved Appointments"></i></a>
-      <a href="#services"><i class="fa fa-history" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+      <a href="#history"><i class="fa fa-history" aria-hidden="true" data-toggle="tooltip" data-placement="right"
           title="History Appointments"></i></i></a>
-      <a href="#clients"><i class="fa fa-sliders" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+      <a href="/profile_settings" target="_blank"><i class="fa fa-sliders" aria-hidden="true" data-toggle="tooltip" data-placement="right"
           title="Settings"></i></i></a>
-      <a href="#contact"><i class="fa fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="right"
+      <a href="#reviews"><i class="fa fa-comments" aria-hidden="true" data-toggle="tooltip" data-placement="right"
           title="Reviews & Ratings"></i></i></a>
+      <!--
       <a href="#contact"><i class="fa fa-fw fa-envelope" data-toggle="tooltip" data-placement="right"
           title="Support"></i></a>
+      -->
     </div>
 
     <!-- Default dropright button -->
-    <a class="btn bottom-left" href="#" role="button" data-toggle="tooltip" data-placement="right" title="Log out"><i
+    <a class="btn bottom-left" href="/signin" role="button" style="color:#223a66 !important;" data-toggle="tooltip" data-placement="right" title="Log out"><i
         class="fa fa-sign-out" aria-hidden="true"></i></a>
   </div>
 
@@ -902,32 +904,32 @@
 
         const datepickers_history_start_range = new Datepicker(history_start_range, {
           // ...options
-          "daysOfWeekDisabled": [0, 3],
-          "datesDisabled": disablePast(),
-          "minDate": disablePast()[29]
+          //"daysOfWeekDisabled": [0, 3],
+          //"datesDisabled": disablePast(),
+          //"minDate": disablePast()[29]
         });
 
         const datepickers_history_end_range = new Datepicker(history_end_range, {
           // ...options
-          "maxDate": "5/13/2023",
-          "daysOfWeekDisabled": [0, 3],
-          "datesDisabled": disablePast(),
-          "minDate": disablePast()[29]
+          //"maxDate": "5/13/2023",
+          //"daysOfWeekDisabled": [0, 3],
+          //"datesDisabled": disablePast(),
+          //"minDate": disablePast()[29]
         });
 
         const datepickers_start_range = new Datepicker(start_range, {
           // ...options
-          "daysOfWeekDisabled": [0, 3],
-          "datesDisabled": disablePast(),
-          "minDate": disablePast()[29]
+         // "daysOfWeekDisabled": [0, 3],
+         // "datesDisabled": disablePast(),
+         // "minDate": disablePast()[29]
         });
 
         const datepickers_end_range = new Datepicker(end_range, {
           // ...options
-          "maxDate": "5/13/2023",
-          "daysOfWeekDisabled": [0, 3],
-          "datesDisabled": disablePast(),
-          "minDate": disablePast()[29]
+          //"maxDate": "5/13/2023",
+          //"daysOfWeekDisabled": [0, 3],
+          //"datesDisabled": disablePast(),
+          //"minDate": disablePast()[29]
         });
 
         function disablePast() {

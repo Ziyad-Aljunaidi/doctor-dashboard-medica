@@ -59,16 +59,16 @@ function displayClicked(){
         }   
     )
 
-    $("#top > div.sidebar > div:nth-child(2) > a:nth-child(3)").click(() => {
-        document.getElementsByClassName("today-appointments")[0].style.display = "none";
-        document.getElementsByClassName("history-appointments")[0].style.display = "none";
-        document.getElementsByClassName("doctor-reviews")[0].style.display = "none";
+    //$("#top > div.sidebar > div:nth-child(2) > a:nth-child(3)").click(() => {
+    //    document.getElementsByClassName("today-appointments")[0].style.display = "none";
+    //    document.getElementsByClassName("history-appointments")[0].style.display = "none";
+    //    document.getElementsByClassName("doctor-reviews")[0].style.display = "none";
 
-        for(let i =0; i<=  document.getElementsByClassName("settings").length; i++){
-                document.getElementsByClassName("settings")[i].style.display = "block";
-            }
-        }   
-    )
+    //    for(let i =0; i<=  document.getElementsByClassName("settings").length; i++){
+    //            document.getElementsByClassName("settings")[i].style.display = "block";
+    //        }
+    //    }   
+    //)
     
     $("#top > div.sidebar > div:nth-child(2) > a:nth-child(4)").click(() => {
         document.getElementsByClassName("today-appointments")[0].style.display = "none";

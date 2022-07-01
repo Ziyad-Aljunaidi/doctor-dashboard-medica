@@ -134,7 +134,7 @@ function confirmBtn(
   clinic_code
 ) {
   if(status_code == '2'){
-    btn_confirm = `<a style='color:white' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '3','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-success'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
+    btn_confirm = `<a style='color:white; cursor:pointer' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '3','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-success'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
     console.log("is confirmed")
   }else if(status_code == '3'){
     btn_confirm = `<a style='color:white; pointer-events: none;' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '3','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-secondary'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
@@ -143,7 +143,7 @@ function confirmBtn(
     btn_confirm = `<a style='color:white; pointer-events: none;' role='button' onclick="window.alert('appointment is already cancelled')" class='badge badge-secondary'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
     console.log("is cancelled")
   }else{
-    btn_confirm = `<a style='color:white ' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '2','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-primary'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
+    btn_confirm = `<a style='color:white; cursor:pointer' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '2','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-primary'><i class='fa fa-check'  aria-hidden='true'></i></a>`;
     console.log("is pending")
   }
   
@@ -173,21 +173,21 @@ function cancelBtn(
   if(status_code =='3' || status_code == '4' || status_code == '5'){
     btn_cancel = `<a style='color:white; pointer-events: none;' role='button' onclick="console.log('already cancelled')" class='badge badge-secondary'><i class='fa fa-times'  aria-hidden='true'></i></a>`;
   }else{
-    btn_cancel = `<a style='color:white' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '4','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-danger'><i class='fa fa-times'  aria-hidden='true'></i></a>`;
+    btn_cancel = `<a style='color:white; cursor:pointer' role='button' onclick="statusCheck('${doc_id}', '${user_id}', '${visit_id}', '${user_time}', '4','${date_stamp}' ,'${reason_code}', '${fees}', '${prescription}', '${clinic_code}')" class='badge badge-danger'><i class='fa fa-times'  aria-hidden='true'></i></a>`;
   }
   
   return btn_cancel;
 }
 
 function btnUploadPrescription(appointment) {
-  let btn_upload_prescription = `<a role='button' onclick='getUploadForm(${JSON.stringify(
+  let btn_upload_prescription = `<a role='button' style="cursor:pointer" onclick='getUploadForm(${JSON.stringify(
     appointment
   )})' class='badge badge-warning'>Upload Prescription</a>`;
   return btn_upload_prescription;
 }
 
 function btnViewPrescription(prescription_url) {
-  let btn_view_prescription = `<a style='color:white' href='${prescription_url}' class='badge badge-primary'>View Prescription</a>`;
+  let btn_view_prescription = `<a style='color:white cursor:pointer' href='${prescription_url}' class='badge badge-primary'>View Prescription</a>`;
   return btn_view_prescription;
 }
 // Badges
@@ -210,7 +210,6 @@ let btn_view_history =
 
 let data_list = []
 async function appointments_to_table(appointments, clinic_code) {
-  
   let table_body = document.querySelector(
     "#top > div.doctor-dashboard > div.container.today-appointments > div.card.mb-12 > table > tbody"
   );
@@ -369,7 +368,10 @@ async function appointments_to_table_inrange(
   );
   table_body.innerHTML = "";
 
+  data_list.length = 0
+
   for (let i = 0; i < appointments.length; i++) {
+    let data_row =[]
     date_parse = Date.parse(appointments[i].date_stamp);
     if (date_parse >= start_date && date_parse <= end_date) {
       console.log(date_parse);
@@ -377,6 +379,7 @@ async function appointments_to_table_inrange(
         let table_r = document.createElement("tr");
         let table_h1 = document.createElement("th");
         let table_h2 = document.createElement("td");
+        let table_h11 = document.createElement("td")
         let table_h3 = document.createElement("td");
         let table_h4 = document.createElement("td");
         let table_h5 = document.createElement("td");
@@ -389,33 +392,51 @@ async function appointments_to_table_inrange(
         table_h1.innerHTML = i + 1;
         table_r.appendChild(table_h1);
 
-        table_h2.innerHTML = await getUSerName(appointments[i].user_id);
-        table_r.appendChild(table_h2);
+        let userName =  await getUSerName(appointments[i].user_id);
+        data_row.push(userName)
 
+        table_h2.innerHTML = userName
+        table_r.appendChild(table_h2);
+        data_row.push(userName)
+
+        data = await getUserData(appointments[i].user_id);
+        table_h11.innerHTML = data.phone_number;
+        data_row.push(data.phone_number)
+
+        table_r.appendChild(table_h11);
         table_h3.innerHTML = appointments[i].date_stamp;
         table_r.appendChild(table_h3);
+        data_row.push(appointments[i].date_stamp)
 
-        table_h4.innerHTML = appointments[i].user_time;
+        table_h4.innerHTML = checkTimeFormat(appointments[i].user_time);
         table_r.appendChild(table_h4);
+        data_row.push(checkTimeFormat(appointments[i].user_time))
 
         if (appointments[i].reason_code == "1") {
           table_h5.innerHTML = badge_examination;
+          data_row.push("Examination")
         } else {
           table_h5.innerHTML = badge_consultation;
+          data_row.push("Consultation")
         }
         table_r.appendChild(table_h5);
 
         table_h6.innerHTML = appointments[i].fees;
         table_r.appendChild(table_h6);
+        data_row.push(appointments[i].fees)
 
         if (appointments[i].status_code == "1") {
           table_h7.innerHTML = badge_pending;
+          data_row.push("Pending")
         } else if (appointments[i].status_code == "2") {
           table_h7.innerHTML = badge_confirmed;
+          data_row.push("Confirmed")
         } else if (appointments[i].status_code == "3") {
           table_h7.innerHTML = badge_complete;
+          data_row.push("Completed")
         } else {
           table_h7.innerHTML = badge_cancelled;
+          data_row.push("Cancelled")
         }
         table_r.appendChild(table_h7);
 
@@ -432,6 +453,9 @@ async function appointments_to_table_inrange(
         table_h10.innerHTML = btn_view_history;
         table_r.appendChild(table_h10);
         table_body.appendChild(table_r);
+        data_list.push(data_row)
+        //updateDataList(data_list)
+        //console.log(data_list)
       }
     }
   }
@@ -448,6 +472,12 @@ getAppointments(getCookie("doc_id")).then((result) => {
   }
   
 });
+
+
+function updateDataList(data_list){
+  let new_dat_list = data_list
+  return new_dat_list
+}
 
 
 $("#date-filter-btn").click(() => {
