@@ -96,15 +96,15 @@ async function statusCheck(
   prescription,
   clinic_code
 ) {
-  //getUserData(user_id).then(async(result) =>{
-  //    if(status_code == '2'){
-  //    await fetch(`https://us-central1-medica72-5933c.cloudfunctions.net/api/confirmation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
-  //    console.log(`https://us-central1-medica72-5933c.cloudfunctions.net/api/confirmation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
-  //  }else if( status_code == '4'){
-  //    await fetch(`https://us-central1-medica72-5933c.cloudfunctions.net/api/cancellation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
-  //    console.log(`https://us-central1-medica72-5933c.cloudfunctions.net/api/cancellation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
-  //  }
-  //})
+  getUserData(user_id).then(async(result) =>{
+      if(status_code == '2'){
+      await fetch(`https://us-central1-medica72-5933c.cloudfunctions.net/api/confirmation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
+      console.log(`https://us-central1-medica72-5933c.cloudfunctions.net/api/confirmation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
+    }else if( status_code == '4'){
+      await fetch(`https://us-central1-medica72-5933c.cloudfunctions.net/api/cancellation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
+      console.log(`https://us-central1-medica72-5933c.cloudfunctions.net/api/cancellation?doc_id=${doc_id}&user_id=${user_id}&user_name=${result.first_name}&user_phone=${result.phone_number}&user_time=${user_time}&user_date=${date_stamp}`)
+    }
+  })
   let response = await fetch(
     `https://us-central1-medica72-5933c.cloudfunctions.net/api/status_appointment?doc_id=${doc_id}&user_id=${user_id}&visit_id=${visit_id}&user_time=${user_time}&status_code=${status_code}&date_stamp=${date_stamp}&reason_code=${reason_code}&fees=${fees}&prescription=${prescription}&clinic_code=${clinic_code}`
   );
