@@ -27,7 +27,53 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
     <style>
+	.loading {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: white;
+	  z-index: 20;
+    }
 
+    .loading-wheel {
+      width: 20px;
+      height: 20px;
+      margin-top: -40px;
+      margin-left: -40px;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      border-width: 30px;
+      border-radius: 50%;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    .style-2 .loading-wheel {
+      border-style: double;
+      border-color: #e12454 transparent;
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0);
+      }
+
+      100% {
+        -webkit-transform: rotate(-360deg);
+      }
+    }
+
+    #loading-screen {
+      display: block;
+    }
     </style>
   </head>
 
@@ -120,9 +166,33 @@
         </div>
       </nav>
     </header>
+
+    <div class="loading style-2" id="loading-screen">
+      <div class="loading-wheel"></div>
+    </div>
     <form id="myForm">
-    <div style="margin-top:40px ;">
-        <div class="container edit-personal-info settings ">
+    <div style="margin-top:40px ; ">
+      <div class="container user-profile settings">
+        <div class="card mb-12">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="images/doc_avatar.png" class="card-img" alt="..." style="width: 60%; margin: 30px; ">
+            </div>
+            <div class="col-md-8" style="margin-top: 30px;">
+              <div class="card-body ">
+                <h2 class="card-title" id="doctor_name">Ziad Sammana</h2>
+                <p class="card-text" id="doctor_email">zadj9965@gmail.com</p>
+                <p class="card-text" id="doctor_category">zadj9965@gmail.com</p>
+                <p class="card-text" id="doctor_qualifications">zadj9965@gmail.com</p>
+                <p class="card-text" id="doctor_birthday"><small class="text-muted">Date of birth: 10/10/2001</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+
+        <div class="container edit-personal-info settings " style="margin-top: 30px;">
             <span style=>
               <h3>Personal Info </h3>
             </span>
@@ -131,7 +201,7 @@
                 <div class="col-md-6" style="margin-top: 30px;">
                   <div class="card-body ">
                     <div class="form-group ">
-                      <label for="Fname">First Name</label>
+                      <label for="Fname">Name</label>
                       <input type="text" class="form-control" id="Fname" required>
         
                     </div>
@@ -152,10 +222,12 @@
         
                 <div class="col-md-6" style="margin-top: 30px;">
                   <div class="card-body ">
+                    <!--
                     <div class="form-group ">
                       <label for="Lname">Last Name</label>
                       <input type="text" class="form-control" id="Lname" required>
                     </div>
+                  -->
                     <div class="form-group">
                       <label for="Birthday">Password</label>
                       <input type="password" class="form-control" id="Password" style="height:45px" required>
@@ -284,17 +356,17 @@
                           <label class="form-check-label" for="ss">Reserve Date Availibility</label>
                           <div class="row" style="text-align: center">
                             <div style="margin: 20px;">
-                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" value="0" required>
+                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" id="weekly" value="0" required>
                               <label class="form-check-label" for="Radio button for following text input">Weekly</label>
                             </div>
         
                             <div style="margin: 20px;">
-                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" value="1" required>
+                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" id="monthly" value="1" required>
                               <label class="form-check-label" for="Radio button for following text input">Monthly</label>
                             </div>
         
                             <div style="margin: 20px;">
-                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" value="2" required>
+                              <input name="fav_language" type="radio" aria-label="Radio button for following text input" id="annually" value="2" required>
                               <label class="form-check-label" for="Radio button for following text input">Annually</label>
                             </div>
                           </div>
@@ -489,9 +561,10 @@
     <script src="plugins/google-map/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 
-    <script src="js/signup.js"></script>
-    <script src="js/verify.js"></script>
-    <script src="js/newSignUp.js"></script>
+    <!--<script src="js/signup.js"></script>-->
+    <!--<script src="js/verify.js"></script>-->
+    <!--<script src="js/newSignUp.js"></script>-->
+    <script src="js/editDocSettings.js"></script>
   </body>
 </html>
 

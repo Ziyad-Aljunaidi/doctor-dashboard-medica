@@ -4,15 +4,36 @@
 //tbody_clinic.childNodes[1].childNodes[3].childNodes[1].childNodes[1].disabled = false
 //
 
-$(".form-check-input").click(function(e){
-    let target = e.target
-    let tr = target.parentNode.parentNode.parentNode
-    tr.childNodes[3].childNodes[1].childNodes[1].disabled = false
-    tr.childNodes[3].childNodes[1].childNodes[1].required = true
 
-    tr.childNodes[5].childNodes[1].childNodes[1].disabled = false
-    tr.childNodes[5].childNodes[1].childNodes[1].required = true
-    console.log(target)
+
+$(".form-check-input").click(function(e){
+    console.log(e.target.checked)
+    if(e.target.checked == false){
+        e.checked = false
+        let target = e.target
+
+        let tr = target.parentNode.parentNode.parentNode
+        tr.childNodes[3].childNodes[1].childNodes[1].disabled = true
+        tr.childNodes[3].childNodes[1].childNodes[1].value = 0
+        tr.childNodes[3].childNodes[1].childNodes[1].required = false
+    
+        tr.childNodes[5].childNodes[1].childNodes[1].disabled = true
+        tr.childNodes[5].childNodes[1].childNodes[1].value = 0
+        tr.childNodes[5].childNodes[1].childNodes[1].required = false
+        console.log(target.checked)
+    }else{
+
+    
+
+   let target = e.target
+   let tr = target.parentNode.parentNode.parentNode
+   tr.childNodes[3].childNodes[1].childNodes[1].disabled = false
+   tr.childNodes[3].childNodes[1].childNodes[1].required = true
+
+   tr.childNodes[5].childNodes[1].childNodes[1].disabled = false
+   tr.childNodes[5].childNodes[1].childNodes[1].required = true
+   console.log(target)
+    }
 })
 
 
@@ -62,6 +83,8 @@ $("#complete-btn").click(function(e){
         specaility: specaility,
         category: category,
         address: address,
+        governorate: governorate,
+        national_id: national_id,
         city: city,
         google_map: clinic_google_map,
         fee:fee,
