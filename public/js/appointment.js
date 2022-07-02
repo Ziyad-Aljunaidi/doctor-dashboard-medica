@@ -205,8 +205,11 @@ let btn_cancel =
   "<a style='color:white' role='button' onclick='getCurrentNode()' class='badge badge-danger'><i class='fa fa-times'  aria-hidden=true'></i></a>";
 //let btn_upload_prescription = "<a role='button' onclick='getUploadForm()' class='badge badge-warning'>Upload Prescription</a>";
 //let btn_view_prescription = "<a style='color:white' role='button' class='badge badge-primary'>View Prescription</a>";
-let btn_view_history =
-  "<a style='color:white' href class='badge badge-secondary'>View History</a>";
+function viewUserHistory(id, name){
+  let btn_view_history = `<a style='cursor:pointer' target="_blank" href="/user_history?user_id=${id}&name=${name}" class='badge badge-warning'>View History</a>`;
+  return btn_view_history
+}
+
 
 let data_list = []
 async function appointments_to_table(appointments, clinic_code) {
@@ -317,7 +320,7 @@ async function appointments_to_table(appointments, clinic_code) {
 
 
 
-      table_h10.innerHTML = btn_view_history;
+      table_h10.innerHTML = viewUserHistory(appointments[i].user_id, userName);
       table_r.appendChild(table_h1);
       table_r.appendChild(table_h2);
       table_r.appendChild(table_h11)
@@ -469,6 +472,8 @@ getAppointments(getCookie("doc_id")).then((result) => {
     document.getElementById('no-appointments').style.display = 'block'
     document.getElementById("appointment-table").style.display = 'none'
     document.getElementById('loading-screen').style.display = 'none'
+    document.getElementById('print-report').style.pointerEvents = "none"
+      document.getElementById('print-report').style.backgroundColor = "gray"
   }
   
 });

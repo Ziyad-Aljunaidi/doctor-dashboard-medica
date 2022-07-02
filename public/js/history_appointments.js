@@ -15,6 +15,9 @@ getDoctorInfo(doc_id).then((result) =>{
   })
 
 async function read_history(doc_id){
+  try{
+
+  
     let response = await fetch(`https://us-central1-medica72-5933c.cloudfunctions.net/api/appointments_history?doc_id=${doc_id}`)
     let data = await response.json()
     if(data.length != 0){
@@ -23,6 +26,15 @@ async function read_history(doc_id){
     else{
         return 0
     }
+  }catch(e){
+    return 0
+  }
+}
+
+
+function viewUserHistory(id, name){
+  let btn_view_history = `<a style='cursor:pointer' target="_blank" href="/user_history?user_id=${id}&name=${name}" class='badge badge-warning'>View History</a>`;
+  return btn_view_history
 }
 
 
@@ -109,7 +121,7 @@ async function history_appointments_to_table(appointments, clinic_code) {
 
 
 
-      table_h10.innerHTML = btn_view_history;
+      table_h10.innerHTML = viewUserHistory(appointments[i].user_id, userName);
       table_r.appendChild(table_h1);
       table_r.appendChild(table_h2);
       table_r.appendChild(table_h11)
@@ -244,7 +256,7 @@ async function history_appointments_to_table_inrange(
           }
         table_r.appendChild(table_h9);
 
-        table_h10.innerHTML = btn_view_history;
+        table_h10.innerHTML = c
         table_r.appendChild(table_h10);
         table_body.appendChild(table_r);
         data_list_history.push(data_row)
@@ -257,10 +269,17 @@ async function history_appointments_to_table_inrange(
 read_history(getCookie("doc_id")).then((result) => {
     if(result != 0){
       history_appointments_to_table(result, "0");
+      console.log(result +"NOT 0")
     }else{
+      console.log(result +"JUST 0")
       document.getElementById('no-history-appointments').style.display = 'block'
       document.getElementById("history-appointment-table").style.display = 'none'
+      document.getElementById('report-history').style.pointerEvents = "none"
+      document.getElementById('report-history').style.backgroundColor = "gray"
+
+
       document.getElementById('loading-screen').style.display = 'none'
+      
     }
     
   });

@@ -33,6 +33,7 @@ app.use("/", express.static('./public/index.html'))
 app.use("/signin", express.static('./public/signin.html'))
 app.use("/signup", express.static('./public/newSignUp.html'))
 app.use("/profile_settings", express.static('./public/settings.html'))
+app.use("/user_history", express.static('./public/user_history.html'))
 
 app.get("/doc_dashboard", (req,res) => {
     let queries = req.query
