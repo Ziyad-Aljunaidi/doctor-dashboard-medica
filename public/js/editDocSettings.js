@@ -214,7 +214,7 @@ $("#complete-btn").click(async function(e){
     //console.log(document.getElementById("myForm").submit())
     console.log(JSON.stringify(final_doctor_obj,0,2))
     //window.alert(JSON.stringify(getWorkingDays()))
-    await fetch('https://us-central1-medica72-5933c.cloudfunctions.net/api/editDoctorInfo',{
+    fetch('https://us-central1-medica72-5933c.cloudfunctions.net/api/editDoctorInfo',{
         body:JSON.stringify(final_doctor_obj),
         method:'post',
         mode: 'no-cors',
@@ -222,12 +222,19 @@ $("#complete-btn").click(async function(e){
           "Content-Type": "application/json"
         },
     })
-    //setTimeout(function() {
-    //    //your code to be executed after 1 second
-    //    window.location.href = "/signin"
-    //    //document.getElementById('users-div').style.display = "none"
-    //  }, 1000);
+    setTimeout(function() {
+        //your code to be executed after 1 second
+        window.location.href = "/"
+        //document.getElementById('users-div').style.display = "none"
+      }, 1000);
+
+    //onsole.log("lOGAGA")
+    //oToHome()
 })
+
+function goToHome(){
+    window.location.href = "https://doctor.medica72.com"
+}
 
 
 function getReserveOption(){

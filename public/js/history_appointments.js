@@ -258,8 +258,8 @@ read_history(getCookie("doc_id")).then((result) => {
     if(result != 0){
       history_appointments_to_table(result, "0");
     }else{
-      document.getElementById('no-appointments').style.display = 'block'
-      document.getElementById("appointment-table").style.display = 'none'
+      document.getElementById('no-history-appointments').style.display = 'block'
+      document.getElementById("history-appointment-table").style.display = 'none'
       document.getElementById('loading-screen').style.display = 'none'
     }
     
